@@ -2,7 +2,7 @@
   <section class="filters-panel">
     <brand-filter :brands="brands"></brand-filter>
     <div class="filters-panel__countries">
-      <select-filter :data="countries"></select-filter>
+      <countries-filter v-if="countries.length > 0" :countries="countries"></countries-filter>
     </div>
   </section>
 </template>
@@ -10,14 +10,14 @@
 <script>
   import store from '../store/index';
   import BrandFilter from './BrandFilter';
-  import SelectFilter from './SelectFilter';
+  import CountriesFilter from './CountriesFilter';
 	import axios from 'axios';
 
   export default {
     name: 'FiltersPanel',
     components: {
       BrandFilter,
-      SelectFilter
+      CountriesFilter
     },
     props: {
       msg: String

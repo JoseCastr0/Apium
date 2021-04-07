@@ -7,7 +7,9 @@ export default new Vuex.Store({
   state() {
     return {
       hotelsList: [],
-      hotelsListFiltered: []
+      hotelsListFiltered: [],
+      brandsFilterValues: [],
+      countriesFilterValues: []
     }
   },
   mutations: {
@@ -19,6 +21,17 @@ export default new Vuex.Store({
       state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
         return payload.brands.includes(hotel.brand)
       });
+    },
+    setCountriesFilter(state, payload) {
+      state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
+        return payload.key.includes(hotel.countryId)
+      });
+    },
+    setBrandsFilterValues(state, payload) {
+      state.brandsFilterValues = payload.value;
+    },
+    setCountriesFilterValues(state, payload) {
+      state.countriesFilterValues = payload.value;
     }
   },
   getters: {
@@ -32,6 +45,15 @@ export default new Vuex.Store({
     },
     setBrandsFilterBy(context, payload) {
       context.commit('setBrandsFilterBy', payload);
+    },
+    setCountriesFilter(context, payload) {
+      context.commit('setCountriesFilter', payload);
+    },
+    setBrandsFilterValues(context, payload) {
+      context.commit('setBrandsFilterValues', payload.value);
+    },
+    setCountriesFilterValues(context, payload) {
+      context.commit('setCountriesFilterValues', payload.value);
     }
   },
   modules: {

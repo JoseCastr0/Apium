@@ -25,7 +25,7 @@
 				const selectedBrands = this.checkedBrands.length > 0 ? this.checkedBrands : this.brands.map(brand => brand.id);
 				this.$store.dispatch('setBrandsFilterBy', { brands: selectedBrands });					
       }
-    },
+    }
   }
 </script>
 
