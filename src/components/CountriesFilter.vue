@@ -22,10 +22,14 @@
 		},
 		methods: {
       filterByCountry() {
-				this.$store.dispatch('setCountriesFilterValues', { countries: [this.selectedCountry] });
+        const selectedCountries = this.selectedCountry.key === '0' ? this.countries : [this.selectedCountry];
+				this.$store.dispatch('setCountriesFilterValues', { countries: selectedCountries });
 				this.$store.dispatch('filterHotels');
       }
-    }    
+    },
+    created() {
+      this.countries.unshift({ key: '0', value: ''});
+    }
   }
 </script>
 
