@@ -1,0 +1,16 @@
+{
+    "brands": [
+        {
+            "id": "a",
+            "name": "Brand 1"
+        },
+        {
+            "id": "b",
+            "name": "Brand 2"
+        },
+        {
+            "id": "c",
+            "name": "Brand 3"
+        }
+    ]
+}

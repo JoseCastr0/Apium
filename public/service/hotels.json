@@ -1,0 +1,39 @@
+{ 
+    "hotels": [
+        {
+            "id": "1",
+            "brand": "a",
+            "name": "Hotel 1",
+            "countryId": "sp",
+            "cityId": "gra"
+        },
+        {
+            "id": "2",
+            "brand": "b",
+            "name": "Hotel 2",
+            "countryId": "sp",
+            "cityId": "mal"
+        },
+        {
+            "id": "3",
+            "brand": "b",
+            "name": "Hotel 3",
+            "countryId": "it",
+            "cityId": "rom"
+        },
+        {
+            "id": "4",
+            "brand": "c",
+            "name": "Hotel 4",
+            "countryId": "it",
+            "cityId": "ven"
+        },
+        {
+            "id": "5",
+            "brand": "a",
+            "name": "Hotel 5",
+            "countryId": "ge",
+            "cityId": "ber"
+        }
+    ]
+}

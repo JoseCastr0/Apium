@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main class="main">
+      <aside class="filters-aside">
+        <filters-panel></filters-panel>
+      </aside>
+      <section class="">
+        <hotels-list></hotels-list>
+      </section>      
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HotelsList from './components/HotelsList.vue';
+import FiltersPanel from './components/FiltersPanel.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HotelsList,
+    FiltersPanel
   }
 }
 </script>
@@ -24,5 +32,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.main {
+  display: flex;
+}
+
+.filters-aside {
+  width: 30%;
+}
+
+.content {
+  width: 70%;
 }
 </style>
