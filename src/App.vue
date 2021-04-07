@@ -4,9 +4,7 @@
       <aside class="filters-aside">
         <filters-panel></filters-panel>
       </aside>
-      <section class="">
-        <hotels-list></hotels-list>
-      </section>      
+      <hotels-list></hotels-list>
     </main>
   </div>
 </template>

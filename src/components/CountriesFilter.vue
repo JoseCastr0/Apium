@@ -1,11 +1,9 @@
 <template>
-<div>
-  <select v-model="selectedCountry" @change="filterByCountry">
+  <select class="countries-filter" v-model="selectedCountry" @change="filterByCountry">
     <option v-for="country in countries" :value="country" :key="country.key">
       {{ country.value }}
     </option>
-  </select>  
-</div>
+  </select>
 </template>
 
 <script>
@@ -34,16 +32,14 @@
 </script>
 
 <style scoped lang="scss">
-  .select-filter {
-    align-items: center;
+  .countries-filter {
+    background-color: #ADADE3;
     border: 1px #000000 solid;
-    display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: center;
+    margin-top: 1em;
     padding-bottom: 1em;
-    width: 100%;
-    
+    width: 50%;    
     
   }
 </style>

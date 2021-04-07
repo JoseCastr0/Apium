@@ -16,6 +16,7 @@
 <style scoped lang="scss">
   .hotel {
     align-items: center;
+    background-color: #ADADE3;
     border: 1px #000000 solid;
     display: flex;
     height: 150px;

@@ -1,5 +1,5 @@
 <template>
-  <section class="hello">
+  <section class="hotels-list">
     <ul>
       <li v-for="hotel in hotelsListFiltered" :key="hotel.index">
         <hotel :hotel="hotel"></hotel>
@@ -31,6 +31,11 @@
 </script>
 
 <style scoped lang="scss">
+  .hotels-list {
+    background-color: #6666DE;
+    margin-left: 1em;
+    padding-bottom: 1em;
+  }
   h3 {
     margin: 40px 0 0;
   }

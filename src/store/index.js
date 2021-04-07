@@ -22,29 +22,17 @@ export default new Vuex.Store({
         return payload.brands.includes(hotel.brand)
       });
     },
-
-
     filterHotels(state) {
-      console.log('state countriesFilterValues', state.countriesFilterValues);
       state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
         return state.countriesFilterValues.includes(hotel.countryId)
       }).filter(hotel => state.brandsFilterValues.includes(hotel.brand));
     },
-
-
-    // filterCountry(state) {
-    //   state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
-    //     return state.countriesFilterValues.includes(hotel.country)
-    //   });
-    // },
-
     setCountriesFilter(state, payload) {
       state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
         return payload.key.includes(hotel.countryId)
       });
     },
     setBrandsFilterValues(state, payload) {
-      console.log('payload', payload);
       state.brandsFilterValues = payload.brands;
     },
     setCountriesFilterValues(state, payload) {
