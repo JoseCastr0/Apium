@@ -3,7 +3,7 @@
     <h4 class="brand-filter__title">Filter by brand</h4>
     <section class="brand-filter__wrapper">
       <div v-for="brand in brands" :key="brand.id">
-          <input type="checkbox" :id="brand.id" :value="brand.id" v-model="checkedBrands" @change="setBrandsFilterBy()"> <label :for="brand.id">{{ brand.name }}</label>
+          <input type="checkbox" :id="brand.id" :value="brand.id" v-model="checkedBrands" @change="filterByBrands()"> <label :for="brand.id">{{ brand.name }}</label>
       </div>
     </section>
   </div>
@@ -21,9 +21,11 @@
 			}
 		},
 		methods: {
-      setBrandsFilterBy() {
+      filterByBrands() {
 				const selectedBrands = this.checkedBrands.length > 0 ? this.checkedBrands : this.brands.map(brand => brand.id);
-				this.$store.dispatch('setBrandsFilterBy', { brands: selectedBrands });					
+        console.log('brandFilter', selectedBrands);
+				this.$store.dispatch('setBrandsFilterValues', { brands: selectedBrands });
+				this.$store.dispatch('filterHotels');
       }
     }
   }

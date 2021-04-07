@@ -1,12 +1,10 @@
 <template>
 <div>
-  <select v-model="selectedCountry" @change="setCountriesFilterBy">
-    <option v-for="country in countries" :value="country.key" :key="country.key">
+  <select v-model="selectedCountry" @change="filterByCountry">
+    <option v-for="country in countries" :value="country" :key="country.key">
       {{ country.value }}
     </option>
-  </select>
-      <span>Selected: {{selectedCountry}}</span>
-  
+  </select>  
 </div>
 </template>
 
@@ -23,19 +21,11 @@
 			}
 		},
 		methods: {
-      setCountriesFilterBy() {
-				// const selectedBrands = this.checkedBrands.length > 0 ? this.checkedBrands : this.brands.map(brand => brand.id);
-        console.log('selectedCountry', this.selectedCountry);
-        console.log('countries', this.countries);
-				this.$store.dispatch('setCountriesFilter', { key: this.selectedCountry });					
+      filterByCountry() {
+				this.$store.dispatch('setCountriesFilterValues', { countries: [this.selectedCountry] });
+				this.$store.dispatch('filterHotels');
       }
-    },
-    created() {
-      console.log('mounted', this.countries);
-      // this.countries.unshift({ key: '0', value: ''});
-      // this.selectedCountry = this.countries[0];
-      // this.selected = 'sp';
-    }
+    }    
   }
 </script>
 

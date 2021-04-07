@@ -37,13 +37,14 @@
       initBrandsFilter() {        
         axios.get('service/brands.json').then((response) => {
           this.brands = response.data.brands;
+          this.$store.dispatch('setBrandsFilterValues', { brands: response.data.brands.map(brand => brand.id) });
         });
       },
       initCountriesFilter() {
         this.countries = store.state.hotelsList.map(hotel => hotel.country);
         axios.get('service/countries.json').then((response) => {
           this.countries = response.data.countries;
-          console.log('countries', this.countries)
+          this.$store.dispatch('setCountriesFilterValues', { countries: response.data.countries });
         });
       }
     },

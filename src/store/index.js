@@ -22,16 +22,33 @@ export default new Vuex.Store({
         return payload.brands.includes(hotel.brand)
       });
     },
+
+
+    filterHotels(state) {
+      console.log('state countriesFilterValues', state.countriesFilterValues);
+      state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
+        return state.countriesFilterValues.includes(hotel.countryId)
+      }).filter(hotel => state.brandsFilterValues.includes(hotel.brand));
+    },
+
+
+    // filterCountry(state) {
+    //   state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
+    //     return state.countriesFilterValues.includes(hotel.country)
+    //   });
+    // },
+
     setCountriesFilter(state, payload) {
       state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
         return payload.key.includes(hotel.countryId)
       });
     },
     setBrandsFilterValues(state, payload) {
-      state.brandsFilterValues = payload.value;
+      console.log('payload', payload);
+      state.brandsFilterValues = payload.brands;
     },
     setCountriesFilterValues(state, payload) {
-      state.countriesFilterValues = payload.value;
+      state.countriesFilterValues = payload.countries.map(country => country.key);
     }
   },
   getters: {
@@ -50,10 +67,16 @@ export default new Vuex.Store({
       context.commit('setCountriesFilter', payload);
     },
     setBrandsFilterValues(context, payload) {
-      context.commit('setBrandsFilterValues', payload.value);
+      context.commit('setBrandsFilterValues', payload);
     },
     setCountriesFilterValues(context, payload) {
-      context.commit('setCountriesFilterValues', payload.value);
+      context.commit('setCountriesFilterValues', payload);
+    },
+    filterHotels(context) {
+      context.commit('filterHotels');
+    },
+    filterCountry(context) {
+      context.commit('filterCountry');
     }
   },
   modules: {
