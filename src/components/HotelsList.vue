@@ -24,8 +24,7 @@
     },
     created() {
       axios.get('service/hotels.json').then((response) => {
-        // this.$store.state.hotelsList = response.data.hotels;
-        this.$store.commit('setFilteredHotelsList', response.data.hotels);	
+        this.$store.dispatch('initHotelList', { hotels: response.data.hotels });	
 			});
     }
   }

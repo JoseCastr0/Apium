@@ -11,11 +11,14 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setBrandsFilterBy(state, brands) {
-      state.hotelsListFiltered = state.hotelsList.filter(hotel => brands.includes(hotel.brand));
+    initHotelList(state, payload) {
+      state.hotelsListFiltered = payload.hotels;
+      state.hotelsList = payload.hotels;
     },
-    setFilteredHotelsList(state, hotels) {
-      state.hotelsListFiltered = hotels;
+    setBrandsFilterBy(state, payload) {
+      state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
+        return payload.brands.includes(hotel.brand)
+      });
     }
   },
   getters: {
@@ -24,6 +27,12 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    initHotelList(context, payload) {
+      context.commit('initHotelList', payload);
+    },
+    setBrandsFilterBy(context, payload) {
+      context.commit('setBrandsFilterBy', payload);
+    }
   },
   modules: {
   }

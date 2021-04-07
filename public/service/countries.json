@@ -1,0 +1,16 @@
+{
+    "countries": [
+        {
+            "key": "sp",
+            "value": "Spain"
+        },
+        {
+            "key": "it",
+            "value": "Italy"
+        },
+        {
+            "key": "ge",
+            "value": "Germany"
+        }
+    ]
+}

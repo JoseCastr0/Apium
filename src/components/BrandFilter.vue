@@ -13,7 +13,7 @@
   export default {
     name: 'BrandFilter',
     props: {
-			brands: Array			
+			brands: Array
 		},
 		data() {
 			return {
@@ -23,8 +23,7 @@
 		methods: {
       setBrandsFilterBy() {
 				const selectedBrands = this.checkedBrands.length > 0 ? this.checkedBrands : this.brands.map(brand => brand.id);
-				console.log(selectedBrands);
-				this.$store.commit('setBrandsFilterBy', selectedBrands);					
+				this.$store.dispatch('setBrandsFilterBy', { brands: selectedBrands });					
       }
     },
   }
