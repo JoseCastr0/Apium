@@ -21,8 +21,7 @@
 		methods: {
       filterByCountry() {
         const selectedCountries = this.selectedCountry.key === '0' ? this.countries : [this.selectedCountry];
-				this.$store.dispatch('setCountriesFilterValues', { countries: selectedCountries });
-				this.$store.dispatch('filterHotels');
+        this.$emit('filter-by-country', selectedCountries);
       }
     },
     created() {

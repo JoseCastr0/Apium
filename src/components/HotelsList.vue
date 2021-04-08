@@ -10,22 +10,14 @@
 
 <script>
   import Hotel from './Hotel';
-  import axios from 'axios';
 
   export default {
     name: 'HotelsList',
     components: {
       Hotel
     },
-    computed: {
-      hotelsListFiltered() {
-        return this.$store.getters.filteredHotelsList;
-      }
-    },
-    created() {
-      axios.get('service/hotels.json').then((response) => {
-        this.$store.dispatch('initHotelList', { hotels: response.data.hotels });	
-			});
+    props: {
+      hotelsListFiltered: Array
     }
   }
 </script>

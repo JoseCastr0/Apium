@@ -20,9 +20,7 @@
 		},
 		methods: {
       filterByBrands() {
-				const selectedBrands = this.checkedBrands.length > 0 ? this.checkedBrands : this.brands.map(brand => brand.id);
-				this.$store.dispatch('setBrandsFilterValues', { brands: selectedBrands });
-				this.$store.dispatch('filterHotels');
+        this.$emit('filter-by-brands', this.checkedBrands);
       }
     }
   }

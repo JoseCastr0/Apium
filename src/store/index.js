@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex)
 
@@ -13,9 +14,11 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    initHotelList(state, payload) {
-      state.hotelsListFiltered = payload.hotels;
-      state.hotelsList = payload.hotels;
+    initHotelList(state) {
+      axios.get('service/hotels.json').then((response) => {
+        state.hotelsListFiltered = response.data.hotels;
+        state.hotelsList = response.data.hotels;
+			});
     },
     setBrandsFilterBy(state, payload) {
       state.hotelsListFiltered = state.hotelsList.filter(hotel => { 
@@ -45,8 +48,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    initHotelList(context, payload) {
-      context.commit('initHotelList', payload);
+    initHotelList(context) {
+      context.commit('initHotelList');
     },
     setBrandsFilterBy(context, payload) {
       context.commit('setBrandsFilterBy', payload);
