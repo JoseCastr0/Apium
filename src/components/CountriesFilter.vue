@@ -10,7 +10,7 @@
   export default {
     name: 'CountriesFilter',
     props: {
-			countries: Array		
+			countries: Array	
 		},
 		data() {
 			return {
@@ -22,7 +22,10 @@
       filterByCountry() {
         const selectedCountries = this.selectedCountry.key === '0' ? this.countries : [this.selectedCountry];
         this.$emit('filter-by-country', selectedCountries);
-      }
+
+        this.$store.dispatch('setCountriesFilterValues', { countries: selectedCountries });
+        this.$store.dispatch('filterHotels');
+      },
     },
     created() {
       this.countries.unshift({ key: '0', value: ''});
